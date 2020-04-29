@@ -14,12 +14,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
 import com.service.DataBaseServices;
 import com.service.LoginModel;
 import com.service.ProductDetails;
 import com.service.accountdetails.Cart;
 import com.service.accountdetails.LoginAccount;
 import com.service.mailservices.MailSenderUtility;
+import com.service.products.Shirts;
+import com.service.products.Electronics;
+import com.service.products.Sports;
+import com.service.products.jewellery;
 
 @Controller
 @RequestMapping(value = "/account")
@@ -35,25 +40,43 @@ public class MyController {
 	private MailSenderUtility mailSender;
 
 	@GetMapping("/home")
-	public String homePage(Model andView) {
+	public String homePage(Model model) {
 		List<ProductDetails> product = service.getAllproduct();
-		andView.addAttribute("product", product);
+		List<Electronics> electronics = service.getAllElectronics();
+		List<Sports> sports = service.getAllSports();
+		List<jewellery> jewellery = service.getAlljewellery();
+		List<Shirts> books = service.getAllBooks();
+		model.addAttribute("product", product);
+		model.addAttribute("electronics", electronics);
+		model.addAttribute("sports", sports);
+		model.addAttribute("jewellery", jewellery);
+		model.addAttribute("books", books);
 		return "homepage";
 	}
 
 	@PostMapping("/login")
 	public String myPage(@RequestParam("useremail") String useremail, @RequestParam("password") String password,
-			Model andView, HttpSession session) {
+			Model model, HttpSession session) {
 		LoginAccount account = new LoginAccount();
 		account.setUseremail(useremail);
 		account.setPassword(password);
 		if (login.login(account) != null) {
+			List<ProductDetails> product = service.getAllproduct();
+			List<Electronics> electronics = service.getAllElectronics();
+			List<Sports> sports = service.getAllSports();
+			List<jewellery> jewellery = service.getAlljewellery();
+			List<Shirts> books = service.getAllBooks();
+			session.setAttribute("product", product);
+			session.setAttribute("electronics", electronics);
+			session.setAttribute("sports", sports);
+			session.setAttribute("jewellery", jewellery);
+			session.setAttribute("books", books);
 			account = login.login(account);
-			andView.addAttribute("user", account);
+			session.setAttribute("user", account);
 			session.setAttribute("user", account);
 			return "homepage";
 		}
-		return "home";
+		return "invalid username or password";
 	}
 
 	@PostMapping("/signup")
@@ -89,8 +112,8 @@ public class MyController {
 
 	}
 
-	@GetMapping("/addcart/{id}")
-	public void addTOCart(@PathVariable("id") String id, HttpSession session) {
+	@GetMapping("/addcart/{id}/{cat}")
+	public void addTOCart(@PathVariable("id") String id, @PathVariable("cat") String cat, HttpSession session) {
 		Cart cart = new Cart();
 		LoginAccount login;
 		login = (LoginAccount) session.getAttribute("user");
@@ -98,6 +121,7 @@ public class MyController {
 		cart.setAccount(login);
 		cart.setUserId(login.getUseremail());
 		service.addTOCart(cart);
+		System.out.println("hello" + cat);
 
 	}
 
@@ -106,6 +130,31 @@ public class MyController {
 		List<Cart> listOfCarts = service.geAllItems(id);
 		model.addAttribute("listOfCarts", listOfCarts);
 		return "userorders";
+	}
+
+	@GetMapping("/category/{id}")
+	public String category(@PathVariable("id") String id, Model model, HttpSession session) {
+
+		if (id.equals("electronics")) {
+			List<Electronics> electronics = service.getAllElectronics();
+			model.addAttribute("electronics", electronics);
+		}
+		if (id.equals("sports")) {
+			List<Sports> sports = service.getAllSports();
+			model.addAttribute("sports", sports);
+		}
+
+		if (id.equals("jewellery")) {
+			List<jewellery> jewellery = service.getAlljewellery();
+			model.addAttribute("jewellery", jewellery);
+		}
+		if (id.equals("shirts")) {
+			List<Shirts> shirts = service.getAllBooks();
+			model.addAttribute("shirts", shirts);
+		}
+
+		return "categoryPage";
+
 	}
 
 }

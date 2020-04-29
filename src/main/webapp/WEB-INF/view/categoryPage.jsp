@@ -125,7 +125,7 @@
 					<!-- 						<li style="padding: 10px;"><a --> <!-- 							href="fc/?page=Logout&type=model">Mobile Accessories</a></li> -->
 					<!-- 						<li style="padding: 10px;"><a --> <!-- 							href="fc/?page=Logout&type=model">Laptops</a></li> -->
 					<!-- 						<li style="padding: 10px;"><a --> <!-- 							href="fc/?page=Logout&type=model">Speakers</a></li> -->
-					<!-- 					</ul> --> <a href="category/electronics">Electronics
+					<!-- 					</ul> --> <a href="fc/?page=Logout&type=model">Electronics
 				</a>
 
 				</li>
@@ -133,7 +133,7 @@
 			<div class="col-lg-2 col-md-3 col-sm-3 col-4"
 				style="padding-top: 6px;">
 				<li class="dropdown" style="list-style-type: none;"><a
-					href="category/jewellery">jewellery </a></li>
+					href="fc/?page=Logout&type=model">jewellery </a></li>
 
 
 			</div>
@@ -141,13 +141,13 @@
 				style="padding-top: 6px;">
 
 				<li class="dropdown" style="list-style-type: none;"><a
-					href="category/sports">Sports </a></li>
+					href="fc/?page=Logout&type=model">Sports </a></li>
 				</li>
 			</div>
 			<div class="col-lg-2 col-md-3 col-sm-3 col-4"
 				style="padding-top: 6px;" style="list-style-type:none;">
 				<li class="dropdown" style="list-style-type: none;"><a
-					href="category/shirts">Shirts </a></li>
+					href="fc/?page=Logout&type=model">Shirts </a></li>
 				</li>
 			</div>
 			<div class="col-lg-2 col-md-3 col-sm-3 col-4"
@@ -281,19 +281,19 @@
 			</div>
 		</div>
 		<div class="container-fluid">
-			<!-- 			<div class="row"> -->
-			<!-- 				<div class="col-lg-12 col-md-12 col-sm-12 col-12" -->
-			<!-- 					style="padding: 2px;"> -->
-			<!-- 					<div class="w3-content w3-section" -->
-			<!-- 						style="max-width: 100%; height: 400px;"> -->
-			<!-- 						<img class="mySlides" src="/img/display/image.jpg" -->
-			<!-- 							style="width: 100%; height: 400px;"> <img class="mySlides" -->
-			<!-- 							src="/img/display/image2.jpg" style="width: 100%; height: 400px;"> -->
-			<!-- 						<img class="mySlides" src="/img/display/img5.jpg" -->
-			<!-- 							style="width: 100%; height: 400px;"> -->
-			<!-- 					</div> -->
-			<!-- 				</div> -->
-			<!-- 			</div> -->
+			<div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-12"
+					style="padding: 2px;">
+					<div class="w3-content w3-section"
+						style="max-width: 100%; height: 400px;">
+						<img class="mySlides" src="/img/display/image.jpg"
+							style="width: 100%; height: 400px;"> <img class="mySlides"
+							src="/img/display/image2.jpg" style="width: 100%; height: 400px;">
+						<img class="mySlides" src="/img/display/img5.jpg"
+							style="width: 100%; height: 400px;">
+					</div>
+				</div>
+			</div>
 		</div>
 		<div class="container-fluid" style="padding: 0px; height: auto">
 			<%-- for (int i = 0; i < 5; i++) { --%>
@@ -400,23 +400,7 @@
 					</div>
 				</c:forEach>
 			</div>
-			<!-- 			<div class="row" style="height: 20px; width: 100%;"> -->
-			<%-- 				<c:forEach var="product" items="${product}" varStatus="status"> --%>
-			<!-- 					<div class="col-sm-3 col-lg-3 col-md-3 col-3"> -->
-			<!-- 						<div class="card" style="width: 100%;"> -->
-			<%-- 							<a href="/img/details/${product.productName}"> <img --%>
-			<%-- 								class="card-img-top" src="/img/display/${product.productName}" --%>
-			<!-- 								alt="Card image" style="width: 100%; height: 300px;"> -->
-			<!-- 							</a> -->
-			<!-- 							<div class="card-body btn btn-primary btn btn-sm" -->
-			<%-- 								onclick="addTo(${product.productName})"> --%>
-			<!-- 								ADD TO BAG -->
-			<%-- 								<h style="color: black">${product.productPrice}</h> --%>
-			<!-- 							</div> -->
-			<!-- 						</div> -->
-			<!-- 					</div> -->
-			<%-- 				</c:forEach> --%>
-			<!-- 			</div> -->
+
 		</div>
 	</div>
 	<div class="container-fluid" style="padding: 0px; height: auto">

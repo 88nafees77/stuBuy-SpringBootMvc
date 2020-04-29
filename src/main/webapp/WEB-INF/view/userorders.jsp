@@ -89,9 +89,8 @@
 	</nav>
 	<div class="container-fluid"
 		style="background-color: window; padding: 10px;">
-		<div class="row" style="background-color: #efefef">
-			<c:forEach var="listOfCarts" items="${listOfCarts}"
-				varStatus="status">
+		<c:forEach var="listOfCarts" items="${listOfCarts}" varStatus="status">
+			<div class="row" style="background-color: #efefef">
 				<div class="col-sm-6 col-lg-6 col-md-4 col-4">
 					<div class="card" style="width: 100%">
 						<a href="/img/details/${listOfCarts.productId}"> <img
@@ -100,11 +99,19 @@
 						</a>
 					</div>
 				</div>
-			</c:forEach>
-		</div>
-		<div class="row" style="background-color: #efefef">
-			<br> <br>
-		</div>
+				<div class="col-sm-6 col-lg-6 col-md-4 col-4">
+					
+					Product Name:${listOfCarts.productId}
+				
+				
+					</div>
+			</div>
+			<br>
+			<br>
+		</c:forEach>
+
+
+		<div class="row" style="background-color: #efefef"></div>
 
 	</div>
 
