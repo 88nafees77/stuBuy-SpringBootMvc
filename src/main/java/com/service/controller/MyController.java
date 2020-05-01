@@ -14,10 +14,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.service.DataBaseServices;
+import com.service.ImageUploader;
 import com.service.LoginModel;
 import com.service.ProductDetails;
+import com.service.accountdetails.AddItems;
 import com.service.accountdetails.Cart;
 import com.service.accountdetails.LoginAccount;
 import com.service.mailservices.MailSenderUtility;
@@ -25,6 +28,7 @@ import com.service.products.Shirts;
 import com.service.products.Electronics;
 import com.service.products.Sports;
 import com.service.products.jewellery;
+import com.service.utility.ControllerUtility;
 
 @Controller
 @RequestMapping(value = "/account")
@@ -38,6 +42,11 @@ public class MyController {
 
 	@Autowired
 	private MailSenderUtility mailSender;
+
+	@Autowired
+	private ImageUploader uploader;
+	@Autowired
+	private ControllerUtility utlity;
 
 	@GetMapping("/home")
 	public String homePage(Model model) {
@@ -154,6 +163,45 @@ public class MyController {
 		}
 
 		return "categoryPage";
+
+	}
+
+	@PostMapping("/additems")
+	public String addItems(@RequestParam("file") MultipartFile file, @RequestParam("price") String price,
+			@RequestParam("discription") String discription, @RequestParam("Category") String category,
+			@RequestParam("productName") String productName) {
+
+		String fileName = uploader.imageUploader(file, "file");
+		AddItems addItems = new AddItems();
+		addItems.setDiscription(discription);
+		addItems.setPrice(Integer.parseInt(price));
+		addItems.setProductName(fileName);
+		addItems.setQuantity(10);
+		addItems.setCategory(category);
+
+		if (category.equals("electronics")) {
+			Electronics electronics = new Electronics();
+			utlity.serialized(addItems, electronics);
+			service.insert(electronics);
+
+		}
+		if (category.equals("sports")) {
+			Sports sports = new Sports();
+			utlity.serialized(addItems, sports);
+			service.insert(sports);
+		}
+		if (category.equals("jewellary")) {
+			jewellery jewellery = new jewellery();
+			utlity.serialized(addItems, jewellery);
+			service.insert(jewellery);
+		}
+		if (category.equals("shirts")) {
+			Shirts shirts = new Shirts();
+			utlity.serialized(addItems, shirts);
+			service.insert(shirts);
+		}
+
+		return "userpage";
 
 	}
 

@@ -45,6 +45,22 @@ public class DataBaseServices {
 		repo.save(account);
 	}
 
+	public void insert(Electronics obj) {
+		electronicsRepo.save(obj);
+	}
+
+	public void insert(jewellery obj) {
+		jweRepo.save(obj);
+	}
+
+	public void insert(Shirts obj) {
+		// sportRepo.save(obj);
+	}
+
+	public void insert(Sports obj) {
+		sportRepo.save(obj);
+	}
+
 	public LoginAccount getData(String id) {
 		return repo.getOne(id);
 	}
@@ -82,6 +98,12 @@ public class DataBaseServices {
 	public List<jewellery> getAlljewellery() {
 		List<jewellery> list = jweRepo.findAll();
 		return list;
+	}
+
+	public String addElectronics(Electronics items) {
+		electronicsRepo.save(items);
+		return "save";
+
 	}
 
 }

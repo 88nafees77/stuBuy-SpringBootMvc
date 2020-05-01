@@ -141,10 +141,14 @@
 						<div class="col-lg-4 col-sm-4 col-md-4"></div>
 
 					</div>
+
+
+
+
+					<br> <br>
 					<div class="row" style="height: 500px; background-color: #efefef">
-						<div class="col-lg-3  col-md-3 col-sm-3 col-4">
-							<nav
-								style="height: 500px; width: 100%; background-color: #bfddfe">
+						<div class="col-lg-12  col-md-12 col-sm-12 col-12">
+							<nav style="height: auto; width: 100%; background-color: #bfddfe">
 								<div>
 									<main>
 										<div class="body_section">
@@ -153,33 +157,48 @@
 												<h2>Add your item</h2>
 											</div>
 
-											<form class="body_container">
+											<form class="body_container" method="post"
+												action="/account/additems" enctype="multipart/form-data">
 
-												<div class="caption">Product Title</div>
+												<div class="caption">Product Name</div>
 
 												<div class="row">
-													<input type="text" class="textbox w100">
+													<input type="text" class="textbox w100" name="productName">
 												</div>
 
 												<div class="caption">Product Description</div>
 
 												<div class="row">
-													<textarea rows="5" class="desc_box w100">
+													<textarea rows="2" class="desc_box w100" name="discription">
                         
                                             </textarea>
 												</div>
-												<form method="post" action="fc/?page=ImageUpload&type=model"
-													enctype="multipart/form-data">
-													<input type="file" name="file" /><br> <input
-														class="button" type="submit" value="upload" />
-												</form>
+
+												<div class="caption">Product Price</div>
+
+												<div class="row">
+													<input type="text" class="textbox w100" name="price">
+												</div>
+
+												<div class="row">
+													<div class="form-group">
+														<label class="control-label" for="Category">Category</label>
+														<select id="Category" class="form-control" name="Category">
+															<option value="electronics">Electronics</option>
+															<option value="sports">Sports</option>
+															<option value="jewellary">Jewellary</option>
+															<option value="shirts">Shirts</option>
+														</select>
+													</div>
+												</div>
+
+												<input type="file" name="file" /><br> <input
+													type="submit" class="button" value="upload" />
+
+											</form>
 										</div>
 
 									</main>
-
-
-
-
 
 								</div>
 							</nav>
@@ -187,7 +206,13 @@
 						</div>
 
 
-						<div class=" col-lg-9 col-md-9 col-sm-9 col-8">
+					</div>
+
+					<br> <br>
+
+
+					<div class="row" style="height: auto">
+						<div class=" col-lg-12 col-md-12 col-sm-12 col-12">
 							<nav style="height: auto; width: 100%; background-color: #eee">
 								<h1
 									style="color: #eee; background-color: black; text-align: center">profile
@@ -207,84 +232,81 @@
 								</div>
 							</nav>
 						</div>
-
-
-					</div>
-
-
-				</div>
-
-
-				<div class="container-fluid">
-					<div class="row">
-						<div class="col-md-12" style="height: 100px;"></div>
-					</div>
-					<div class="row"></div>
-					<div class="row">
-						<div class="col-md-12" style="height: 100px;"></div>
-					</div>
-
-
-
-				</div>
-
-			</c:if>
-			<div id="myModal" class="modal fade" role="dialog">
-				<div class="modal-dialog">
-
-					<!-- Modal content-->
-					<div class="modal-content">
-						<div class="modal-header">
-							<button type="button" class="fade" data-dismiss="modal">&times;</button>
-							<button type="button" class="btn btn-primary btn-lg"
-								style="float: left">Registration</button>
-
-						</div>
-						<div class="modal-body">
-							<form action="/account/signup" method="post">
-								<p class="hint-text">Fill in this form to create your
-									account!</p>
-								<div class="form-group">
-									<input type="text" name="useremail" placeholder="userid"
-										id="eeid" onblur="aCaller('eeid', 'errid')">
-								</div>
-								<div class="form-group">
-									<input type="text" placeholder="Userphone" id="pid"
-										onblur="validator('pid', 'errorpid')" name="userphone">
-								</div>
-								<div class="form-group">
-									<input type="password" placeholder="Password" id="pid"
-										onblur="validator('pid', 'errorpid')" name="password">
-								</div>
-
-								<div class="form-group">
-									<input type="password" placeholder="Re-Password" id="pid"
-										onblur="validator('pid', 'errorpid')" name="password2">>
-								</div>
-
-								<div class="form-group">
-									<input type="text" placeholder="Full Name" name="username"
-										id="fname" onblur="validator('fname', 'errorfname')">
-								</div>
-
-								<div class="form-group">
-									<label class="checkbox-inline"><input type="checkbox"
-										required="required"> I accept the <a href="#">Terms
-											&amp; Conditions</a></label>
-								</div>
-								<input type="submit" class="btn btn-primary btn-block"
-									value="Sign up">
-							</form>
-
-
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-default"
-								data-dismiss="modal">Close</button>
-						</div>
 					</div>
 
 				</div>
+		</div>
+
+
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12" style="height: 100px;"></div>
 			</div>
+			<div class="row"></div>
+			<div class="row">
+				<div class="col-md-12" style="height: 100px;"></div>
+			</div>
+
+
+
+		</div>
+
+		</c:if>
+		<div id="myModal" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="fade" data-dismiss="modal">&times;</button>
+						<button type="button" class="btn btn-primary btn-lg"
+							style="float: left">Registration</button>
+
+					</div>
+					<div class="modal-body">
+						<form action="/account/signup" method="post">
+							<p class="hint-text">Fill in this form to create your
+								account!</p>
+							<div class="form-group">
+								<input type="text" name="useremail" placeholder="userid"
+									id="eeid" onblur="aCaller('eeid', 'errid')">
+							</div>
+							<div class="form-group">
+								<input type="text" placeholder="Userphone" id="pid"
+									onblur="validator('pid', 'errorpid')" name="userphone">
+							</div>
+							<div class="form-group">
+								<input type="password" placeholder="Password" id="pid"
+									onblur="validator('pid', 'errorpid')" name="password">
+							</div>
+
+							<div class="form-group">
+								<input type="password" placeholder="Re-Password" id="pid"
+									onblur="validator('pid', 'errorpid')" name="password2">>
+							</div>
+
+							<div class="form-group">
+								<input type="text" placeholder="Full Name" name="username"
+									id="fname" onblur="validator('fname', 'errorfname')">
+							</div>
+
+							<div class="form-group">
+								<label class="checkbox-inline"><input type="checkbox"
+									required="required"> I accept the <a href="#">Terms
+										&amp; Conditions</a></label>
+							</div>
+							<input type="submit" class="btn btn-primary btn-block"
+								value="Sign up">
+						</form>
+
+
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
 </body>
 </html>
