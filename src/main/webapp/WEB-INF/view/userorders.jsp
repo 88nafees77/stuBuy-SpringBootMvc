@@ -99,12 +99,14 @@
 						</a>
 					</div>
 				</div>
-				<div class="col-sm-6 col-lg-6 col-md-4 col-4">
-					
-					Product Name:${listOfCarts.productId}
-				
-				
-					</div>
+				<div class="col-sm-6 col-lg-6 col-md-4 col-4"
+					style="background-color: silver;">
+					<div style="height: 45px">Product
+						Discription:${listOfCarts.discription}</div>
+					<div style="height: 45px">Product Price:${listOfCarts.price}</div>
+					<div style="height: 45px">Product
+						Price:${listOfCarts.productName}</div>
+				</div>
 			</div>
 			<br>
 			<br>

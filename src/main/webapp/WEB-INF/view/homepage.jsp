@@ -309,7 +309,7 @@
 								style="width: 100%; height: 300px;">
 							</a>
 							<div class="card-body btn btn-primary btn btn-sm"
-								onclick="addTo(${electronics.productName},'electronics')">
+								onclick="addTo(${electronics.productName})">
 								ADD TO BAG
 								<h style="color: black">${electronics.price}</h>
 							</div>
@@ -331,7 +331,7 @@
 								alt="Card image" style="width: 100%; height: 300px;">
 							</a>
 							<div class="card-body btn btn-primary btn btn-sm"
-								onclick="addTo(${sports.productName},'electronics')">
+								onclick="addTo(${sports.productName})">
 								ADD TO BAG
 								<h style="color: black">${sports.price}</h>
 							</div>
@@ -350,7 +350,7 @@
 								alt="Card image" style="width: 100%; height: 300px;">
 							</a>
 							<div class="card-body btn btn-primary btn btn-sm"
-								onclick="addTo(${jewellery.productName},'electronics')">
+								onclick="addTo(${jewellery.productName})">
 								ADD TO BAG
 								<h style="color: black">${jewellery.price}</h>
 							</div>
@@ -370,7 +370,7 @@
 								alt="Card image" style="width: 100%; height: 300px;">
 							</a>
 							<div class="card-body btn btn-primary btn btn-sm"
-								onclick="addTo(${books.productName},'electronics')">
+								onclick="addTo(${books.productName})">
 								ADD TO BAG
 								<h style="color: black">${books.price}</h>
 							</div>
@@ -381,25 +381,25 @@
 			<div class="row" style="height: 20px; width: 100%;"></div>
 			<%-- complete --%>
 			<%-- 4th row --%>
-			<div class="row" style="background-color: #efefef">
-				<c:forEach var="electronics" items="${electronics}"
-					varStatus="status">
-					<div class="col-sm-3 col-lg-3 col-md-3 col-3">
-						<div class="card" style="width: 100%;">
-							<a href="/img/details/${electronics.productName}"> <img
-								class="card-img-top"
-								src="/img/display/${electronics.productName}" alt="Card image"
-								style="width: 100%; height: 300px;">
-							</a>
-							<div class="card-body btn btn-primary btn btn-sm"
-								onclick="addTo(${electronics.productName},'electronics')">
-								ADD TO BAG
-								<h style="color: black">${electronics.price}</h>
-							</div>
-						</div>
-					</div>
-				</c:forEach>
-			</div>
+			<!-- 			<div class="row" style="background-color: #efefef"> -->
+			<%-- 				<c:forEach var="electronics" items="${electronics}" --%>
+			<%-- 					varStatus="status"> --%>
+			<!-- 					<div class="col-sm-3 col-lg-3 col-md-3 col-3"> -->
+			<!-- 						<div class="card" style="width: 100%;"> -->
+			<%-- 							<a href="/img/details/${electronics.productName}"> <img --%>
+			<!-- 								class="card-img-top" -->
+			<%-- 								src="/img/display/${electronics.productName}" alt="Card image" --%>
+			<!-- 								style="width: 100%; height: 300px;"> -->
+			<!-- 							</a> -->
+			<!-- 							<div class="card-body btn btn-primary btn btn-sm" -->
+			<%-- 								onclick="addTo(${electronics.productName},'electronics')"> --%>
+			<!-- 								ADD TO BAG -->
+			<%-- 								<h style="color: black">${electronics.price}</h> --%>
+			<!-- 							</div> -->
+			<!-- 						</div> -->
+			<!-- 					</div> -->
+			<%-- 				</c:forEach> --%>
+			<!-- 			</div> -->
 			<!-- 			<div class="row" style="height: 20px; width: 100%;"> -->
 			<%-- 				<c:forEach var="product" items="${product}" varStatus="status"> --%>
 			<!-- 					<div class="col-sm-3 col-lg-3 col-md-3 col-3"> -->

@@ -121,8 +121,8 @@ public class MyController {
 
 	}
 
-	@GetMapping("/addcart/{id}/{cat}")
-	public void addTOCart(@PathVariable("id") String id, @PathVariable("cat") String cat, HttpSession session) {
+	@GetMapping("/addcart/{id}")
+	public void addTOCart(@PathVariable("id") String id, HttpSession session) {
 		Cart cart = new Cart();
 		LoginAccount login;
 		login = (LoginAccount) session.getAttribute("user");
@@ -130,7 +130,6 @@ public class MyController {
 		cart.setAccount(login);
 		cart.setUserId(login.getUseremail());
 		service.addTOCart(cart);
-		System.out.println("hello" + cat);
 
 	}
 

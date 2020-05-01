@@ -2,9 +2,8 @@
  * 
  */
 
-function addTo(id,category) {
+function addTo(id) {
 	var data = id;
-	var cat = category;
 	var xhr = new XMLHttpRequest();
 	xhr.onreadystatechange = function() {
 		if (xhr.readyState == 4) {
@@ -13,6 +12,6 @@ function addTo(id,category) {
 			}
 		}
 	}
-	xhr.open("get", "/account/addcart/" + data + "/" + cat, true);
+	xhr.open("get", "/account/addcart/" + data, true);
 	xhr.send(null);
 }
